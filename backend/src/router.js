@@ -1,13 +1,39 @@
 const express = require("express");
 
-const { ItemController } = require("./controllers");
+const {
+  CategoryController,
+  ChannelsController,
+  ContentsController,
+  UsersController,
+  ChannelsAndContentsController,
+  UsersHasChannelsController,
+} = require("./controllers");
 
 const router = express.Router();
 
-router.get("/items", ItemController.browse);
-router.get("/items/:id", ItemController.read);
-router.put("/items/:id", ItemController.edit);
-router.post("/items", ItemController.add);
-router.delete("/items/:id", ItemController.delete);
+router.get("/users", UsersController.browse);
+router.get("/users/channels", UsersHasChannelsController.browse);
+router.get("/users/:id", UsersController.read);
+router.put("/users/:id", UsersController.edit);
+router.post("/users", UsersController.add);
+router.delete("/users/:id", UsersController.delete);
 
+router.get("/category", CategoryController.browse);
+router.get("/category/:id", CategoryController.read);
+router.put("/category/:id", CategoryController.edit);
+router.post("/category", CategoryController.add);
+router.delete("/category/:id", CategoryController.delete);
+
+router.get("/channels", ChannelsController.browse);
+router.get("/channels/contents", ChannelsAndContentsController.browse);
+router.get("/channels/:id", ChannelsController.read);
+router.put("/channels/:id", ChannelsController.edit);
+router.post("/channels", ChannelsController.add);
+router.delete("/channels/:id", ChannelsController.delete);
+
+router.get("/contents", ContentsController.browse);
+router.get("/contents/:id", ContentsController.read);
+router.put("/contents/:id", ContentsController.edit);
+router.post("/contents", ContentsController.add);
+router.delete("/contents/:id", ContentsController.delete);
 module.exports = router;
