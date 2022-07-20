@@ -39,10 +39,10 @@ h6{
   font-size: .67em;
   font-weight: bolder;
 }
-main{
+/* main{
   margin-top: 5vh;
   margin-left: 15%;
-}
+} */
 @media screen and (max-width: 700px) {
     width: 90vw;
 }

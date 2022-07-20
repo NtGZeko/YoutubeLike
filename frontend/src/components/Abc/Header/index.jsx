@@ -1,4 +1,4 @@
-import SideNav from "../SideNav";
+import SideNav from "@components/Abc/SideNav";
 import SHeader from "./style";
 
 export default function NavBar() {
