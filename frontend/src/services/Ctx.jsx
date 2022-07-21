@@ -8,6 +8,7 @@ const [users, setUsers] = useState([]);
 const [category, setCategory] = useState([]);
 const [channels, setChannels] = useState([]);
 const [contents, setContents] = useState([]);
+const [advenced, setAdvenced] = useState([]);
 
 useEffect(() => {
   axios
@@ -65,6 +66,14 @@ useEffect(() => {
     });
 }, []);
 
+useEffect(() => {
+  axios
+    .get(`${import.meta.env.VITE_BACKEND_URL}${"/channels/contents"}`)
+    .then(({ data }) => {
+      setAdvenced(data);
+    });
+}, []);
+
 export function CtxProvider({ children }) {
   return (
     <ctxProvider.Provider
@@ -74,6 +83,7 @@ export function CtxProvider({ children }) {
         category,
         channels,
         contents,
+        advenced,
       }}
     >
       {children}

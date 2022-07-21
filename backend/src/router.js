@@ -1,6 +1,7 @@
 const express = require("express");
 
 const {
+  AdvencedChannelsController,
   CategoryController,
   ChannelsController,
   ContentsController,
@@ -36,4 +37,7 @@ router.get("/contents/:id", ContentsController.read);
 router.put("/contents/:id", ContentsController.edit);
 router.post("/contents", ContentsController.add);
 router.delete("/contents/:id", ContentsController.delete);
+
+router.get("/channels/contents", AdvencedChannelsController.browse);
+router.get("/channels/contents/:id", ContentsController.read);
 module.exports = router;
