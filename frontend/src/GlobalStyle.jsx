@@ -8,11 +8,12 @@ const GlobalStyle = createGlobalStyle`
   --tertiary-color: #2D2E46;
   --hover-color: #31295C;
   --font-family: 'Lato', sans-serif;
+  --white: #F8F8FF;
   background-color: var(--primary-color);
 }  
 h1,h2,h3,h4,h5,h6, p, li{
   font-family: var(--font-family);
-  color: #F8F8FF;
+  color: var(--white);
 }
 h1{
   font-size: 2em;
