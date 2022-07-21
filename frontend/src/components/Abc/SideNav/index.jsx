@@ -1,10 +1,9 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import PropTypes from "prop-types";
-import { FaHome, FaBars } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { MdSubscriptions } from "react-icons/md";
 import { GrChannel } from "react-icons/gr";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import SSideNav from "./style";
 
 const routes = [
@@ -25,28 +24,28 @@ const routes = [
   },
 ];
 
-export default function SideNav({ children }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+export default function SideNav({ children, open }) {
+  // const [isOpen, setIsOpen] = useState(false);
+  // const toggle = () => setIsOpen(!isOpen);
 
   return (
     <SSideNav>
       <section className="main-container">
         <motion.div
-          animate={{ width: isOpen ? "15%" : "5%" }}
+          animate={{ width: open ? "15%" : "3%" }}
           className="sidebar"
         >
           <div className="top_section">
-            <h1 className="logo">TubeYou</h1>
-            <div className="bars">
-              <FaBars onClick={toggle} />
-            </div>
+            {/* {open && <h1 className="logo">TubeYou</h1>} */}
+            <div className="bars">{/* <FaBars onClick={func} /> */}</div>
           </div>
           <article className="routes">
             {routes.map((route) => (
               <NavLink to={route.path} key={route.name} className="link">
                 <div className="icon">{route.icon}</div>
-                <div className="link_text">{route.name}</div>
+                <AnimatePresence>
+                  {open && <div className="link_text">{route.name}</div>}
+                </AnimatePresence>
               </NavLink>
             ))}
           </article>
@@ -59,4 +58,5 @@ export default function SideNav({ children }) {
 
 SideNav.propTypes = {
   children: PropTypes.element.isRequired,
+  open: PropTypes.bool.isRequired,
 };
