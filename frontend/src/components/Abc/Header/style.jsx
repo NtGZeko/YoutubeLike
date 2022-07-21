@@ -11,6 +11,13 @@ export default styled.header`
   border-bottom: 1px solid var(--white);
   .flex {
     display: flex;
-    z-index: 99;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--white);
+    font-size: 1rem;
+
+    width: 12%;
+  }
+  h1 {
   }
 `;

@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export default styled.nav`
-  margin-top: 5vh;
-
+  width: 3em;
   .sidebar {
-    background-color: rgb(114, 127, 222);
+    background-color: var(--secondary-color);
     color: white;
-    height: 100vh;
+    height: 95vh;
+  }
+  .main-container {
+    width: 100%;
   }
   a {
     text-decoration: none;
@@ -26,6 +28,7 @@ export default styled.nav`
   }
   .link {
     display: flex;
+
     font-size: 1.3em;
     color: var(--white);
     padding: 1rem 0.6rem;
@@ -34,7 +37,7 @@ export default styled.nav`
     border-right: 4px solid transparent;
   }
   .link:hover {
-    border-right: 4px solid var(--white);
+    border-right: 4px solid var(--hover-color);
     transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
     background-color: rgb(45, 51, 89);
   }
