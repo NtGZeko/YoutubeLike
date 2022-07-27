@@ -3,6 +3,7 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Reset } from "styled-reset";
+import { CtxProvider } from "@services/Ctx";
 import GlobalStyle from "./GlobalStyle";
 import App from "./App";
 
@@ -13,10 +14,12 @@ const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
-    <Reset />
-    <GlobalStyle />
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <CtxProvider>
+      <Reset />
+      <GlobalStyle />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </CtxProvider>
   </React.StrictMode>
 );
